@@ -27,16 +27,17 @@
 
 
 (om::fill-library 
- '(("distributions" nil nil (ran ran01 choix choixmultiple distexp  expobi distlin
-                                 distcauchy distlog distCsHp distarsin poisson triang weilbull
-                                 gauss gamma beta bfp-to-distribution) nil)
-   ("alea-seq" nil nil (not-centr alea-seq linea-seq triang-seq) nil)
-   ("random-walks" nil nil (brownian1 brownian2  
-                                      randwalk1  randwalk2 randwalkX 
-                                      achorripsis i1/f seq1/f 
-                                      markov1 markov2 Ana-Mark Ana-Mark1 Ana-Mark2 
-                                      transition2) nil)
-   ("tools" nil nil ( zoom1 zoom2  zoom3 zoom4 filtre1  filtre2  filtre3 filtre4) nil)))
+ '(("distributions" nil nil (alea::ran alea::ran01 alea::choix alea::choixmultiple alea::distexp alea::expobi alea::distlin
+                                 alea::distcauchy alea::distlog alea::distCsHp alea::distarsin alea::poisson alea::triang alea::weilbull
+                                 alea::gauss alea::gamma alea::beta alea::bfp-to-distribution) nil)
+   ("alea-seq" nil nil (alea::not-centr alea::alea-seq alea::linea-seq alea::triang-seq) nil)
+   ("random-walks" nil nil (alea::brownian1 alea::brownian2  
+                                      alea::randwalk1 alea::randwalk2 alea::randwalkX 
+                                      alea::achorripsis alea::i1/f alea::seq1/f 
+                                      alea::markov1 alea::markov2 alea::Ana-Mark alea::Ana-Mark1 alea::Ana-Mark2 
+                                      alea::transition2) nil)
+   ("tools" nil nil (alea::zoom1 alea::zoom2 alea::zoom3 alea::zoom4 
+                                 alea::filtre1 alea::filtre2 alea::filtre3 alea::filtre4) nil)))
 
 (om::add-lib-alias "OMAlea" "Alea")
 
