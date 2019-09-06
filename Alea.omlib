@@ -1,0 +1,51 @@
+;============================================================================
+; Alea
+; Aleatoric-functions library for OM
+;============================================================================
+;
+;   This program is free software. For information on usage 
+;   and redistribution, see the "LICENSE" file in this distribution.
+;
+;   This program is distributed in the hope that it will be useful,
+;   but WITHOUT ANY WARRANTY; without even the implied warranty of
+;   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+;
+;============================================================================
+
+
+(:om-lib 
+ (:version 1.2)
+ (:doc "Aleatoric-functions library")
+ (:author "M. Malt, IRCAM 1998")
+ (:source-files 
+  "sources/package"
+  "sources/distributions"
+  "sources/random-walks"
+  "sources/alea-sequences"
+  "sources/outils"
+  )
+ (:symbols
+  (:packages 
+   (:package 
+    (:name "Distributions")
+    (:functions "alea::ran" "alea::ran01" "alea::choix" "alea::choixmultiple" "alea::distexp" "alea::expobi" "alea::distlin"
+     "alea::distcauchy" "alea::distlog" "alea::distCsHp" "alea::distarsin" "alea::poisson" "alea::triang" "alea::weilbull"
+     "alea::gauss" "alea::gamma" "alea::beta" "alea::bfp-to-distribution"))
+   (:package 
+    (:name "Sequences")
+    (:functions "alea::not-centr" "alea::alea-seq" "alea::linea-seq" "alea::triang-seq"))
+   (:package 
+    (:name "Random Walks")
+    (:functions "alea::brownian1" "alea::brownian2"  
+     "alea::randwalk1" "alea::randwalk2" "alea::randwalkX" 
+     "alea::achorripsis" "alea::i1/f" "alea::seq1/f" 
+     "alea::markov1" "alea::markov2" "alea::ana-mark" "alea::ana-mark1" "alea::ana-mark2" 
+     "alea::transition2"))
+   (:package 
+    (:name "Tools")
+    (:functions "alea::zoom1" "alea::zoom2" "alea::zoom3" "alea::zoom4" 
+     "alea::filtre1"  "alea::filtre2"  "alea::filtre3" "alea::filtre4"))
+   ))
+ )
+
+
