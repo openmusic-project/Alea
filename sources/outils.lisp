@@ -15,7 +15,6 @@
 ;among the old PW patches using this functions and the news in OM
 
 
-
 (om::defmethod! filtre1 ((x number) (binf number) (bsup number)  )
   :initvals '(nil 0 100) 
   :indoc '("any single value" "lower boundary" "upper boundary")

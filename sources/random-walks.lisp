@@ -25,12 +25,14 @@
 
 (let ((res) (cn nc) (pamax (+ pamax 1)))
   (dotimes (n (- long 1) res)
-    (om::newl res (setf nc  
-                    (let ((lap 0))
-         (setf lap   (* (om-random-value pamax) (if (< (/ (om-random-value 100) 100) .5) (- 1) 1 )))
-         (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
-             (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
-                          )))
+    (push
+     (setf nc  
+           (let ((lap 0))
+             (setf lap   (* (om-random-value pamax) (if (< (/ (om-random-value 100) 100) .5) (- 1) 1 )))
+             (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
+               (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
+           )
+     res))
  (cons cn (reverse res))))
 
 
@@ -46,12 +48,14 @@
 Warning: boudaries are considered as elastic."
   (let ((res) (cn nc) (pamax (+ pamax 1)))
     (dotimes (n (- long 1) res)
-      (om::newl res (setf nc  
-                          (let ((lap 0))
-                            (setf lap   (* 100 (om-random-value pamax) (if (< (/ (om-random-value 100) 100) .5) (- 1) 1 )))
-                            (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
-                                (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
-                          )))
+      (push 
+       (setf nc  
+             (let ((lap 0))
+               (setf lap   (* 100 (om-random-value pamax) (if (< (/ (om-random-value 100) 100) .5) (- 1) 1 )))
+               (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
+                 (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
+             )
+       res))
     (cons cn (reverse res))))
  
 
@@ -71,12 +75,14 @@ sequence and <binf> and <bsup> the inferior boundary and the
 superior boundary.Warning: boudaries are considered as elastic."
   (let ((res) (cn nc) (pamax (+ pamax 1)))
     (dotimes (n (- long 1) res)
-      (om::newl res (setf nc  
-                          (let ((lap 0))
-                            (setf lap   (* 100  (/ 1 prox) (om-random-value pamax) (if (< (/ (om-random-value 100) 100) .5) (- 1) 1 )))
-                            (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
-                                (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
-                          )))
+      (push 
+       (setf nc  
+             (let ((lap 0))
+               (setf lap   (* 100  (/ 1 prox) (om-random-value pamax) (if (< (/ (om-random-value 100) 100) .5) (- 1) 1 )))
+               (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
+                 (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
+             )
+       res))
     (cons cn (reverse res))))
  
 
@@ -91,12 +97,13 @@ superior boundary.Warning: boudaries are considered as elastic."
 Warning: boudaries are considered as elastic."
   (let ((res) (cn nc))
     (dotimes (n (- long 1) res)
-      (om::newl res (setf nc  
-                          (let ((lap 0))
-                            (setf lap   (*  (alea::gauss 0 sigma)))
-                            (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
-                                (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
-                          )))
+      (push (setf nc  
+                  (let ((lap 0))
+                    (setf lap   (*  (alea::gauss 0 sigma)))
+                    (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
+                      (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
+                  )
+            res))
     (cons cn (reverse res))))
  
 
@@ -113,14 +120,15 @@ and <binf> and <bsup> the inferior boundary and the superior boundary in midi-ce
 Warning: boudaries are considered as elastic."
 (let ((res) (cn nc))
   (dotimes (n (- long 1) res)
-    (om::newl res (setf nc  
-                    (let ((lap 0))
-         (setf lap   (* 100 (alea::gauss 0 sigma)))
-         (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
-             (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
-                          )))
- (cons cn (reverse res))))
- 
+    (push (setf nc  
+                (let ((lap 0))
+                  (setf lap   (* 100 (alea::gauss 0 sigma)))
+                  (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
+                    (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
+                )
+          res))
+  (cons cn (reverse res))))
+
 
 
 (om::defmethod!  achorripsis ((nc number) (binf number) (bsup number) (long integer) (g number)) 
@@ -132,16 +140,17 @@ Warning: boudaries are considered as elastic."
 in numberents,<long> the length of the sequence and <binf> and <bsup> 
 the inferior boundary and the superior boundary in numberents.
 Warning: boudaries are considered as elastic."
-(let ((res) (cn nc))
-  (dotimes (n (- long 1) res)
-    (om::newl res (setf nc  
-                    (let ((lap 0))
-         (setf lap   (* 100 (* g (- 1 (sqrt (/ (om-random-value 1000) 1000))))
-                        (if (< (/ (om-random-value 100) 100) .5) (- 1) 1 )))
-         (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
-             (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
-                          )))
-   (cons cn (reverse res))))
+  (let ((res) (cn nc))
+    (dotimes (n (- long 1) res)
+      (push  (setf nc  
+                   (let ((lap 0))
+                     (setf lap   (* 100 (* g (- 1 (sqrt (/ (om-random-value 1000) 1000))))
+                                    (if (< (/ (om-random-value 100) 100) .5) (- 1) 1 )))
+                     (if (> (+ nc lap) bsup) (- (* bsup 2) (+ nc lap))
+                       (if (< (+ nc lap) binf) (- (* binf 2) (+ nc lap)) (+ nc lap))) )
+                   )
+             res))
+    (cons cn (reverse res))))
  
 
 
@@ -238,7 +247,6 @@ element of the line to the element of the column."
 
 
 
-:*****************
 
 (om::defmethod! Ana-Mark ((data list))
             :initvals '(0 1 2 3 4 5)
@@ -279,13 +287,11 @@ deuxieme sous-liste est la matrice de transition"
     ))
 
 
-:*****************
+
 ;(setf matri1 (ana-mark '(1 2 3 4 5 6  2 4 5 1 2 5 4 1 00 0 0 0 0 )))
 ;(aref matri1 1 0)   ;linha-coluna
 ;(array-dimension  matri1 0)
  
-:*****************
-
 
 
 (om::defmethod! Ana-Mark1 ((data list) (espace list)) 
@@ -326,8 +332,6 @@ deuxieme sous-liste est la matrice de transition"
               )))
     ))
 
-
-:*****************
 
 
 (om::defmethod! Ana-Mark2 ((data list) (espace list))
@@ -377,10 +381,6 @@ La sortie est  liste qui  est la matrice de transition"
 
 
 
-
-
-
-
 (defun arr-to-list2 (array )
   (let ((aux nil) (aux1 nil) (aux2 nil)
         (long (array-dimension  array 0)))
@@ -406,12 +406,13 @@ est la liste de donnees de base et la
 deuxieme sous-liste est la matrice de transition"
   
   (let* ((dimension (1+ (om::list-max  data)))
-         (matrice (make-nul-matrice2 dimension))
-         (count 0))
+         (matrice (make-nul-matrice2 dimension)))
     (mapcar #'(lambda (a b c) (incf (apply #'aref matrice (list a b c)) 1)) data (cdr data) (cddr data))
     (setf matrice (arr-to-list2 matrice))
-    (om::OM-round (mapcar #'(lambda (m) (om::om/ m (let ((somme (apply '+ m)))
-                                                     (if (= 0 somme) 1 somme)))) (om::flat-once matrice)) 4)
+    (om::om-round (mapcar #'(lambda (m) (om::om/ m (let ((somme (apply '+ m)))
+                                                     (if (= 0 somme) 1 somme)))) 
+                          (om::flat-once matrice))
+                  4)
     ))
 
 
