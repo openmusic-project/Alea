@@ -38,7 +38,7 @@
 from a vector opf probability <vectprob>. This box is extensible."
   (nth (do ((indice 0 (+ indice 1))
             (u (/ (random 10000.0) 10000.0))
-            (valeur 0))      ; dŽf de var
+            (valeur 0))      ; def de var
            ((> valeur u) (- indice 1))
          (setf valeur (+ valeur (nth  indice vectprob)))) listobjets))
 |#
@@ -52,7 +52,7 @@ from a vector opf probability <vectprob>. This box is extensible."
 from a vector opf probability <vectprob>. This box is extensible."
                 (let ((index (do ((indice 0 (+ indice 1))
                                   (u (/ (random 10000.0) 10000.0))
-                                  (valeur 0))      ; dŽf de var
+                                  (valeur 0))      ; def de var
                                  ((> valeur u) (- indice 1))
                                (setf valeur (+ valeur (nth  indice vectprob)))) ))
                   (if listobjets 

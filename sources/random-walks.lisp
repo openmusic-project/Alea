@@ -207,7 +207,7 @@ the element of the line to the element of the column.  "
          (dotimes (x (- long 1) seq)
            (setf i (do ((indice 1 (+ indice 1))
                         (u (/ (om-random-value 1000.0) 1000.0))
-                        (valeur 0))      ; déf de var
+                        (valeur 0))      ; def de var
                        ((> valeur u) (- indice 1))
                      (setf valeur (+ valeur (nth  (- indice 1) (nth  (- i 1)  l))))))
            (setf seq (cons i seq)))
@@ -224,7 +224,7 @@ In the list <l> the transition is considered as made from the
 element of the line to the element of the column."
   (do ((indice 1 (+ indice 1))
        (u (/ (om-random-value 1000.0) 1000.0))
-       (valeur 0))      ; déf de var
+       (valeur 0))      ; def de var
       ((> valeur u) (- indice 1))
     (setf valeur (+ valeur (nth  (- indice 1) (nth  (- prim 1)  l))))))
 
@@ -304,7 +304,7 @@ est la liste de donnees de base et la
 deuxieme sous-liste est la matrice de transition"
   (let* (;(longtot (length data))  ; longueur de la liste total
          ;(ntrans (1- longtot))   ;nombre de transitions
-         (basedata espace)  ;liste de données de base
+         (basedata espace)  ;liste de donnees de base
          
          (long (length basedata))  ;longueur de la liste de donnees de base
          (assocbase (om::mat-trans (list basedata (om::arithm-ser  0 (1- long) 1 )))) ;liste d'association
@@ -342,7 +342,7 @@ deuxieme sous-liste est la matrice de transition"
 La sortie est  liste qui  est la matrice de transition"
   (let* (;(longtot (length data))  ; longueur de la liste total
          ;(ntrans (1- longtot))   ;nombre de transitions
-         (basedata espace)  ;liste de données de base
+         (basedata espace)  ;liste de donnees de base
          
          (long (length basedata))  ;longueur de la liste de donnees de base
          (assocbase (om::mat-trans (list basedata (om::arithm-ser 0  (1- long) 1)))) ;liste d'association
