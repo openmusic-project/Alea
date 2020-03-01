@@ -13,7 +13,7 @@
 ;============================================================================
 
 (defpackage "ALEA" 
-  (:use "COMMON-LISP" "OpenMusic"))
+  (:use "COMMON-LISP" "OM"))
 
 (in-package "ALEA")
 
