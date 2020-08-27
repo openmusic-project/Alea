@@ -167,7 +167,7 @@ Ex:  If n=2   the values will be comprised between 0 and 3,
        If n=4   the values will be comprised between 0 and 15,
        If n=7   the values will be comprised between 0 and 127.
 "
-  (let ((nw 0) (j)  ( l last) (k (/ (expt 2 n) 2)) (p (/ 1.0 (expt 2 n))))
+  (let ((nw 0) (j)  (l last) (k (/ (expt 2 n) 2)) (p (/ 1.0 (expt 2 n))))
     (prog ()
       label
       (setf j (floor (/ l k)))
