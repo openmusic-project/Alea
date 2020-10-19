@@ -12,7 +12,7 @@
 ;
 ;============================================================================
 
-;;; LIB LOADER FOR OM6
+;;; LIB LOADER FOR OM
 
 (in-package :om)
 
@@ -41,4 +41,4 @@
 
 (om::add-lib-alias "OMAlea" "Alea")
 
-(om::set-lib-release 1.2)
+(om::set-lib-release 1.3)
