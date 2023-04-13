@@ -15,7 +15,7 @@
 (defpackage "ALEA" 
   (:use "COMMON-LISP" "OM"))
 
-(in-package "ALEA")
+(in-package :alea)
 
 ;;; mettre dans un des fichiers sources...
 (defun om-random-value (val)

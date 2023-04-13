@@ -8,7 +8,7 @@
 
 
 
-(in-package "ALEA")
+(in-package :alea)
 
 
 ;We just let here this function in order to allow a conceptual compatibility

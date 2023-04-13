@@ -6,7 +6,7 @@
 
 
 
-(in-package "ALEA")
+(in-package :alea)
 
 (defun ran () 
   "Generates a variable <x> uniformly distributed, such as 0 =< x =< 1."

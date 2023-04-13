@@ -7,7 +7,7 @@
 ;;                                 functions by Mikhail Malt   1998 Paris IRCAM
 
 
-(in-package "ALEA")
+(in-package :alea)
 
  
 
