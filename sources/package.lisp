@@ -13,7 +13,8 @@
 ;============================================================================
 
 (defpackage "ALEA" 
-  (:use "COMMON-LISP" "OM"))
+  (:use "COMMON-LISP" "OM")
+  (:nicknames "AL"))
 
 (in-package :alea)
 
