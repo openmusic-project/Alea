@@ -6,4 +6,5 @@ By Mikhail Malt, IRCAM 1998
 
 ---------
 
-See also PW-Alea reference (1996): http://support.ircam.fr/docs/om-libraries/old/PW-Alea.pdf 
+See also PW-Alea reference (1996): https://openmusic-project.github.io/openmusic/doc/om-libraries/PW-Alea.pdf 
+
